@@ -11,13 +11,13 @@ export const TaskContextProvider = ({ children }) => {
 
   const addTask = (newTask) => {
     setTasks([...tasks, newTask]);
-    console.log(tasks)
+    
   };
 
   const removeTask = (id) => {
     const taskRemoved = tasks.filter((task) => task.id !== id);
     setTasks(taskRemoved);
-    console.log(tasks)
+    
   };
 
   const clearTasks = () => {
