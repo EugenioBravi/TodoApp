@@ -23,13 +23,14 @@ const Form = () => {
       info: task,
       date: theDate,
       id: unique_id
-    }
-    console.log(taskId)
-    addTask(taskId)
+    };
+    
+    addTask(taskId);
+    event.target.reset();
   }
 
   return (
-    <div className=" rounded-lg bg-white p-4 shadow-lg lg:col-span-3 lg:p-12">
+    <div className=" rounded-lg bg-white py-4 px-2 m-2 shadow-lg lg:col-span-3 lg:p-12">
       <h1 className="mb-7 text-center font-serif text-xl font-bold">
         What do you have ToDo
       </h1>
