@@ -5,10 +5,11 @@ const Form = () => {
   const [task, setTask] = useState({
     task: "",
     description: "",
+    date: "",
   });
   const { addTask } = useTaskContext();
   const unique_id = uuid();
-  const theDate = new Date().toISOString().slice(0, 10);
+
   const handleInputChange = (event) => {
     setTask({
       ...task,
@@ -16,21 +17,20 @@ const Form = () => {
     });
   };
 
-  const sendTask = (event) =>{
+  const sendTask = (event) => {
     event.preventDefault();
 
     const taskId = {
       info: task,
-      date: theDate,
-      id: unique_id
+      id: unique_id,
     };
-    
+
     addTask(taskId);
     event.target.reset();
-  }
+  };
 
   return (
-    <div className=" rounded-lg bg-white py-4 px-2 m-2 shadow-lg lg:col-span-3 lg:p-12">
+    <div className=" m-2 w-full rounded-lg bg-white py-4 px-6 shadow-xl">
       <h1 className="mb-7 text-center font-serif text-xl font-bold">
         What do you have ToDo
       </h1>
@@ -42,7 +42,8 @@ const Form = () => {
           <input
             className="w-full rounded-lg border-gray-400 p-3 text-sm"
             placeholder="Task"
-            name="task" required
+            name="task"
+            required
             onChange={handleInputChange}
             type="text"
             id="task"
@@ -56,17 +57,33 @@ const Form = () => {
           <textarea
             className="w-full rounded-lg border-gray-400 p-3 text-sm"
             placeholder="Description"
-            name="description" required
+            name="description"
+            required
             onChange={handleInputChange}
             rows="8"
             id="description"
           ></textarea>
         </div>
-
+        <div className="mt-5">
+          <label
+            htmlFor="date"
+            className="mb-3 block text-base  font-medium text-[#07074D]"
+          >
+            Date
+          </label>
+          <input
+            type="date"
+            name="date"
+            required
+            id="date"
+            onChange={handleInputChange}
+            className="w-full rounded-md border border-gray-400 bg-white py-3 px-6 text-base font-medium text-[#6B7280] "
+          />
+        </div>
         <div className="mt-4 flex justify-center">
           <button
             type="submit"
-            className="inline-flex w-full items-center justify-center rounded-lg bg-black px-5 py-3 text-white sm:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-lg bg-black px-5 py-3 text-white "
           >
             <span className="font-medium"> Add </span>
 
