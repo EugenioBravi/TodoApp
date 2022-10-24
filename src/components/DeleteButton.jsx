@@ -1,10 +1,13 @@
-import { useTaskContext } from "./Context/TaskContext";
+import { useDispatch } from "react-redux";
+import { removeTask } from "./store/TaskStore/Task";
+const DeleteButton = ({ id }) => {
+  const dispatch = useDispatch();
 
-
-const DeleteButton = ({id}) => {
-  const {removeTask} = useTaskContext();
   return (
-    <button className="ml-auto inline-block rounded-full border border-red-600 bg-red-600 p-3 text-white hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-red-500"  onClick={() => removeTask(id)}>
+    <button
+      className="ml-auto inline-block rounded-full border border-red-600 bg-red-600 p-3 text-white hover:bg-transparent hover:text-red-600 focus:outline-none focus:ring active:text-red-500"
+      onClick={() => dispatch(removeTask(id))}
+    >
       <svg
         className="h-4 w-4"
         xmlns="http://www.w3.org/2000/svg"

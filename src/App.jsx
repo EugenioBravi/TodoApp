@@ -1,16 +1,10 @@
-import { TaskContextProvider } from "./components/Context/TaskContext"
-import ToDoFront from "./components/ToDoFront"
-
-
+import ToDoFront from "./components/ToDoFront";
 function App() {
-  
   return (
     <>
-      <TaskContextProvider>
-      <ToDoFront/>
-      </TaskContextProvider>
+      <ToDoFront />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

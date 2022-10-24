@@ -1,4 +1,5 @@
-import { useTaskContext } from "./Context/TaskContext";
+import { addTask } from "./store/TaskStore/Task";
+import { useDispatch } from "react-redux";
 import { v4 as uuid } from "uuid";
 import { useState } from "react";
 const Form = () => {
@@ -7,7 +8,7 @@ const Form = () => {
     description: "",
     date: "",
   });
-  const { addTask } = useTaskContext();
+  const dispatch = useDispatch();
   const unique_id = uuid();
 
   const handleInputChange = (event) => {
@@ -25,7 +26,7 @@ const Form = () => {
       id: unique_id,
     };
 
-    addTask(taskId);
+    dispatch(addTask(taskId));
     event.target.reset();
   };
 
